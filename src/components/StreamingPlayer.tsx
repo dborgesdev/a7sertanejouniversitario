@@ -1,5 +1,5 @@
 import { useReducedMotion, motion } from "framer-motion";
-import playerShow from "@/assets/player_show.webp";
+import playerBackground from "@/assets/player_bg.webp";
 
 const playerIframeUrl = "https://player.svrdedicado.org/player-topo-html5/7752/000000";
 
@@ -43,12 +43,12 @@ export function StreamingPlayer() {
           {/* Fotografia exclusiva do player */}
           <div className="relative h-64 sm:h-80 overflow-hidden">
             <img
-              src={playerShow}
+              src={playerBackground}
               alt=""
               className="absolute inset-0 h-full w-full object-cover"
               loading="lazy"
-              width={1920}
-              height={1080}
+              width={1600}
+              height={900}
             />
             <div className="absolute inset-0 bg-linear-to-t from-texas-dark via-texas-dark/10 to-transparent" />
 

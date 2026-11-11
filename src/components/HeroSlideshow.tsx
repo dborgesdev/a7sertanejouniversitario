@@ -2,14 +2,18 @@ import { useState, useEffect } from "react";
 import { useReducedMotion, motion, AnimatePresence } from "framer-motion";
 import hero01 from "@/assets/hero_01.webp";
 import hero02 from "@/assets/hero_02.webp";
+import hero03 from "@/assets/hero_03.webp";
+import hero04 from "@/assets/hero_04.webp";
 import hero05 from "@/assets/hero_05.webp";
 import hero06 from "@/assets/hero_06.webp";
 
 const slides = [
-  { image: hero01, alt: "Apresentação musical com iluminação azul e dourada" },
-  { image: hero02, alt: "Dupla com violões e microfones" },
-  { image: hero05, alt: "Público em um evento musical ao ar livre" },
-  { image: hero06, alt: "Músicos no palco com iluminação multicolorida" },
+  { image: hero01, alt: "Mulher sorrindo com chapéu em luz de fim de tarde" },
+  { image: hero02, alt: "Três amigos sorrindo ao ar livre" },
+  { image: hero03, alt: "Detalhe de um violão sendo tocado" },
+  { image: hero04, alt: "Homem ouvindo música com fones ao ar livre" },
+  { image: hero05, alt: "Amigos se divertindo sob luzes de festa" },
+  { image: hero06, alt: "Chapéu sobre uma cerca ao pôr do sol" },
 ];
 
 export function HeroSlideshow() {
@@ -26,7 +30,10 @@ export function HeroSlideshow() {
   }, [reducedMotion]);
 
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col overflow-hidden">
+    <section
+      id="hero"
+      className="relative min-h-screen flex flex-col overflow-hidden bg-texas-dark"
+    >
       <AnimatePresence initial={false}>
         <motion.div
           key={current}
@@ -34,12 +41,12 @@ export function HeroSlideshow() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
-          className="absolute inset-0"
+          className="absolute inset-x-0 bottom-0 top-24 sm:top-28 xl:inset-0"
         >
           <img
             src={slides[current].image}
             alt={slides[current].alt}
-            className="h-full w-full object-cover"
+            className="h-full w-full object-contain object-top xl:object-cover xl:object-center"
             width={1920}
             height={1080}
           />
