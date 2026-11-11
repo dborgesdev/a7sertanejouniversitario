@@ -26,7 +26,7 @@ jobs:
       - name: Checkout client repository
         uses: actions/checkout@v4
         with:
-          repository: dougdeva7/texasbrasilfm
+          repository: dougdeva7/a7sertanejouniversitario
           token: ${{ secrets.CLIENT_DEPLOY_TOKEN }}
           ref: main
           path: deploy
