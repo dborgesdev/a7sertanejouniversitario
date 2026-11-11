@@ -6,10 +6,10 @@ import hero05 from "@/assets/hero_05.webp";
 import hero06 from "@/assets/hero_06.webp";
 
 const slides = [
-  { image: hero01, alt: "Palco sertanejo com luzes vermelhas e douradas" },
-  { image: hero02, alt: "Violão sertanejo e animação" },
-  { image: hero05, alt: "Dupla sertaneja com violões no palco" },
-  { image: hero06, alt: "Festival de música ao pôr do sol" },
+  { image: hero01, alt: "Apresentação musical com iluminação azul e dourada" },
+  { image: hero02, alt: "Dupla com violões e microfones" },
+  { image: hero05, alt: "Público em um evento musical ao ar livre" },
+  { image: hero06, alt: "Músicos no palco com iluminação multicolorida" },
 ];
 
 export function HeroSlideshow() {
@@ -84,8 +84,8 @@ export function HeroSlideshow() {
           transition={{ delay: 0.7 }}
           className="mt-6 max-w-lg text-base text-primary-foreground/70 font-normal tracking-wide md:text-lg"
         >
-          A7 Sertanejo Universitário FM. Os sucessos que embalam a galera, com muita música e
-          energia para acompanhar você em todos os momentos.
+          Os sucessos do sertanejo universitário em uma rádio feita para acompanhar você. Dê o play
+          e curta sua música onde estiver.
         </motion.p>
 
         <motion.a

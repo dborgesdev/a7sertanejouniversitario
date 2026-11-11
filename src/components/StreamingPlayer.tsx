@@ -26,10 +26,10 @@ export function StreamingPlayer() {
             Rádio ao vivo
           </span>
           <h2 className="font-display text-3xl font-black text-foreground md:text-5xl tracking-tight">
-            Rádio <span className="text-gradient-red">A7 Sertanejo Universitário FM</span>
+            <span className="text-gradient-red">A7 Sertanejo Universitário FM</span>
           </h2>
           <p className="mt-3 text-muted-foreground text-sm md:text-base">
-            O som da galera. Dê o play para ouvir ao vivo.
+            O som da galera. Dê o play e curta ao vivo.
           </p>
         </motion.div>
 
