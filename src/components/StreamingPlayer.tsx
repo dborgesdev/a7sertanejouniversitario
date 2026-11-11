@@ -1,12 +1,9 @@
-import { useState } from "react";
 import { useReducedMotion, motion } from "framer-motion";
 import playerShow from "@/assets/player_show.webp";
 
 const playerIframeUrl = "https://player.svrdedicado.org/player-topo-html5/7752/000000";
 
 export function StreamingPlayer() {
-  const [activated, setActivated] = useState(false);
-
   const reducedMotion = useReducedMotion();
 
   return (
@@ -77,23 +74,13 @@ export function StreamingPlayer() {
 
           {/* Player oficial hospedado pelo provedor */}
           <div className="relative bg-texas-dark">
-            {activated ? (
-              <iframe
-                src={playerIframeUrl}
-                title="A7 Sertanejo Universitário FM - Player ao vivo"
-                className="h-20 w-full border-0"
-                allow="autoplay"
-                referrerPolicy="strict-origin-when-cross-origin"
-              />
-            ) : (
-              <button
-                type="button"
-                onClick={() => setActivated(true)}
-                className="min-h-20 w-full px-4 py-5 font-bold text-white hover:text-secondary focus-visible:outline-2 focus-visible:outline-secondary"
-              >
-                ▶ Carregar player ao vivo
-              </button>
-            )}
+            <iframe
+              src={playerIframeUrl}
+              title="A7 Sertanejo Universitário FM - Player ao vivo"
+              className="h-20 w-full border-0"
+              allow="autoplay"
+              referrerPolicy="strict-origin-when-cross-origin"
+            />
           </div>
         </motion.div>
       </div>
