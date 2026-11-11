@@ -1,4 +1,5 @@
 import clubeLogo from "@/assets/cluberadios.webp";
+import { RadioName } from "@/components/RadioName";
 
 export function Footer() {
   return (
@@ -107,8 +108,7 @@ export function Footer() {
             </div>
             <div className="w-full border-t border-primary-foreground/10 pt-8 mt-4">
               <p className="text-xs text-primary-foreground/30">
-                © {new Date().getFullYear()} A7 Sertanejo Universitário FM. Todos os direitos
-                reservados.
+                © {new Date().getFullYear()} <RadioName />. Todos os direitos reservados.
               </p>
               <p className="mt-2 text-xs text-primary-foreground/20">
                 Desenvolvido por{" "}

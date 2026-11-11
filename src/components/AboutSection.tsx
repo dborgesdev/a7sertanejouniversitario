@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { RadioName } from "@/components/RadioName";
 import aboutImg from "@/assets/about_studio.webp";
 
 export function AboutSection() {
@@ -19,9 +20,9 @@ export function AboutSection() {
             Sua playlist sertaneja <span className="text-gradient-red">não tem fim</span>
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-primary-foreground/70">
-            Tem sempre uma boa música para combinar com o seu momento. A A7 Sertanejo Universitário
-            FM reúne a energia e o estilo do sertanejo universitário em uma experiência online feita
-            para quem gosta de ouvir, cantar junto e aproveitar.
+            Tem sempre uma boa música para combinar com o seu momento. A <RadioName /> reúne a
+            energia e o estilo do sertanejo universitário em uma experiência online feita para quem
+            gosta de ouvir, cantar junto e aproveitar.
           </p>
           <p className="mt-4 text-base text-primary-foreground/50">
             Em casa, no trabalho, na estrada ou com os amigos, dê o play e deixe o som da galera

@@ -58,6 +58,13 @@
 /* Local Latin subsets include the Portuguese accents used throughout the site. */
 @font-face {
   font-family: 'Arimo';
+  src: url('/fonts/arimo-regular.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Arimo';
   src: url('/fonts/arimo-bold.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;

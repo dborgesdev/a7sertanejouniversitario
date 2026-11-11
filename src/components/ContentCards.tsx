@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { RadioName } from "@/components/RadioName";
 import { motion, AnimatePresence } from "framer-motion";
 import * as Dialog from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
@@ -154,7 +155,7 @@ export function ContentCards() {
                           id="editorial-description"
                           className="mt-4 text-muted-foreground leading-relaxed"
                         >
-                          {cards[selected].full}
+                          <RadioName text={cards[selected].full} />
                         </Dialog.Description>
                         <a
                           href="#player"
