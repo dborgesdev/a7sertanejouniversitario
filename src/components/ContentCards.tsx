@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import * as Dialog from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
 import content01 from "@/assets/content_01.webp";
 import content02 from "@/assets/content_02.webp";
@@ -10,39 +11,39 @@ import content06 from "@/assets/content_06.webp";
 
 const cards = [
   {
-    title: "A Essência do Modão",
-    summary: "A história por trás das letras que marcaram gerações.",
-    full: "O modão não é apenas música, é o retrato da vida no campo, das histórias de amor e da resiliência do povo brasileiro com um toque da influência texana.",
+    title: "O Melhor do Sertanejo Universitário",
+    summary: "Os hits que conquistam as playlists e fazem a galera cantar junto.",
+    full: "Refrões que ficam na cabeça, violões cheios de ritmo e histórias que parecem falar com a gente: o sertanejo universitário combina energia e emoção. Das canções animadas às baladas românticas, o gênero encontra espaço nas playlists e nos encontros entre amigos. Na A7 Sertanejo Universitário FM, essa é a inspiração para a trilha sonora dos seus momentos.",
     image: content01,
   },
   {
-    title: "Cultura Texas-Brasil",
-    summary: "A conexão entre o Nashville sound e o sertanejo raiz.",
-    full: "Explore como a instrumentação do country americano se fundiu com a alma brasileira para criar um som único e potente que você ouve aqui.",
+    title: "A Evolução do Sertanejo",
+    summary: "Da tradição às novas gerações que transformaram o gênero.",
+    full: "O sertanejo se transforma sem perder o gosto por contar histórias. A viola, as vozes em dupla e as narrativas do cotidiano abriram caminho para novas sonoridades, arranjos e formas de cantar. O sertanejo universitário faz parte desse movimento brasileiro, aproximando o gênero de novas gerações com melodias envolventes e temas que acompanham a vida de quem ouve.",
     image: content02,
   },
   {
-    title: "O Estilo Country",
-    summary: "Rodeio, bota, chapéu e muita tradição.",
-    full: "Ser country é um estado de espírito. Levamos até você a energia das arenas e a sofisticação dos grandes festivais mundiais.",
+    title: "A Energia dos Grandes Shows",
+    summary: "Palcos, luzes, multidões e emoções inesquecíveis.",
+    full: "Quando a plateia canta o mesmo refrão, a música ganha outra dimensão. Violões, bandas e iluminação criam o cenário para encontros cheios de emoção nos shows sertanejos. Entre a expectativa do primeiro acorde e a vontade de ouvir mais uma, cada pessoa leva consigo uma lembrança diferente. É essa energia coletiva que faz dos grandes palcos uma experiência tão especial.",
     image: content03,
   },
   {
-    title: "Viola & Raízes",
-    summary: "O som autêntico que vem do coração do Brasil.",
-    full: "A viola caipira é instrumento de alma. Cada acorde carrega séculos de tradição, fé e amor pela terra. Na Texas Brasil FM, esse som ecoa sem parar.",
+    title: "Violão, Voz e Emoção",
+    summary: "As melodias e histórias que fazem parte da nossa vida.",
+    full: "Às vezes, bastam uma voz e um violão para uma canção encontrar seu lugar na nossa memória. O sertanejo fala de encontros, saudade, recomeços e daqueles sentimentos difíceis de explicar. Entre acordes delicados e interpretações intensas, as músicas criam espaço para cantar junto ou simplesmente deixar a emoção acontecer.",
     image: content04,
   },
   {
-    title: "Clássicos Eternos",
-    summary: "As músicas que nunca saem do coração do povo.",
-    full: "De Tião Carreiro a Chitãozinho & Xororó, os clássicos do sertanejo são patrimônio cultural. Aqui você ouve tudo isso e muito mais, 24h por dia.",
+    title: "Sucessos que Marcam Gerações",
+    summary: "Músicas que atravessam o tempo e continuam conquistando fãs.",
+    full: "Há canções que passam de uma geração para outra e novidades que logo se tornam parte da nossa história. Um refrão pode lembrar uma viagem, uma amizade ou um encontro especial. O sertanejo reúne essas memórias em um repertório vivo, em que diferentes épocas se encontram e cada ouvinte descobre novas razões para apertar o play.",
     image: content05,
   },
   {
-    title: "Festivais & Shows",
-    summary: "A energia dos maiores palcos do country e sertanejo.",
-    full: "Os maiores festivais do mundo reúnem milhões de fãs. A Texas Brasil FM traz essa energia para o seu dia a dia, onde quer que você esteja.",
+    title: "Festivais e Grandes Encontros",
+    summary: "A experiência de viver o sertanejo com a galera.",
+    full: "Reunir os amigos, conhecer novas músicas e cantar em coro: os festivais são feitos de momentos que vão além do palco. A música sertaneja acompanha esses encontros com alegria, romance e refrões que aproximam as pessoas. Seja em uma grande plateia ou em uma festa entre amigos, compartilhar uma boa canção é uma forma de criar novas lembranças.",
     image: content06,
   },
 ];
@@ -72,14 +73,15 @@ export function ContentCards() {
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {cards.map((card, i) => (
-            <motion.div
+            <motion.button
+              type="button"
               key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               onClick={() => setSelected(i)}
-              className="card-3d group relative h-72 cursor-pointer overflow-hidden rounded-2xl"
+              className="card-3d group relative text-left h-72 cursor-pointer overflow-hidden rounded-2xl"
             >
               <img
                 src={card.image}
@@ -99,56 +101,75 @@ export function ContentCards() {
                 </p>
               </div>
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-linear-to-t from-secondary/20 to-transparent" />
-            </motion.div>
+            </motion.button>
           ))}
         </div>
       </div>
 
-      <AnimatePresence>
-        {selected !== null && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-texas-dark/80 backdrop-blur-md p-4"
-            onClick={() => setSelected(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-lg overflow-hidden rounded-3xl bg-card shadow-2xl"
-            >
-              <img
-                src={cards[selected].image}
-                alt={cards[selected].title}
-                className="h-56 w-full object-cover"
-              />
-              <div className="absolute top-0 left-0 right-0 h-56 bg-linear-to-t from-card to-transparent" />
-              <button
-                onClick={() => setSelected(null)}
-                className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full glass text-primary-foreground hover:bg-secondary transition-colors"
-              >
-                <X size={20} />
-              </button>
-              <div className="p-8 -mt-12 relative z-10">
-                <h3 className="font-display text-2xl font-black text-foreground">
-                  {cards[selected].title}
-                </h3>
-                <p className="mt-4 text-muted-foreground leading-relaxed">{cards[selected].full}</p>
-                <a
-                  href="#player"
+      <Dialog.Root
+        open={selected !== null}
+        onOpenChange={(open) => {
+          if (!open) setSelected(null);
+        }}
+      >
+        <AnimatePresence>
+          {selected !== null && (
+            <Dialog.Portal forceMount>
+              <Dialog.Overlay asChild>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="fixed inset-0 z-50 flex items-center justify-center bg-texas-dark/80 backdrop-blur-md p-4"
                   onClick={() => setSelected(null)}
-                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-secondary px-6 py-3 text-sm font-bold uppercase tracking-wider text-secondary-foreground transition-all hover:scale-105 hover:shadow-lg hover:shadow-secondary/30"
                 >
-                  ▶ Ouça Agora
-                </a>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                  <Dialog.Content asChild aria-describedby="editorial-description">
+                    <motion.div
+                      initial={{ scale: 0.9, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      exit={{ scale: 0.9, opacity: 0 }}
+                      onClick={(e) => e.stopPropagation()}
+                      className="relative w-full max-w-lg max-h-[85dvh] overflow-y-auto rounded-3xl bg-card shadow-2xl"
+                    >
+                      <img
+                        src={cards[selected].image}
+                        alt={cards[selected].title}
+                        className="h-56 w-full object-cover"
+                      />
+                      <div className="absolute top-0 left-0 right-0 h-56 bg-linear-to-t from-card to-transparent" />
+                      <button
+                        aria-label="Fechar conteúdo"
+                        onClick={() => setSelected(null)}
+                        className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full glass text-primary-foreground hover:bg-secondary transition-colors"
+                      >
+                        <X size={20} />
+                      </button>
+                      <div className="p-8 -mt-12 relative z-10">
+                        <Dialog.Title className="font-display text-2xl font-black text-foreground">
+                          {cards[selected].title}
+                        </Dialog.Title>
+                        <Dialog.Description
+                          id="editorial-description"
+                          className="mt-4 text-muted-foreground leading-relaxed"
+                        >
+                          {cards[selected].full}
+                        </Dialog.Description>
+                        <a
+                          href="#player"
+                          onClick={() => setSelected(null)}
+                          className="mt-6 inline-flex items-center gap-2 rounded-full bg-secondary px-6 py-3 text-sm font-bold uppercase tracking-wider text-secondary-foreground transition-all hover:scale-105 hover:shadow-lg hover:shadow-secondary/30"
+                        >
+                          ▶ Ouça Agora
+                        </a>
+                      </div>
+                    </motion.div>
+                  </Dialog.Content>
+                </motion.div>
+              </Dialog.Overlay>
+            </Dialog.Portal>
+          )}
+        </AnimatePresence>
+      </Dialog.Root>
     </section>
   );
 }

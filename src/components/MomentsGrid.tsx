@@ -7,17 +7,17 @@ const moments = [
   {
     title: "Enquanto Descansa",
     image: descansa,
-    description: "O som perfeito para relaxar e recarregar as energias.",
+    description: "Melodias sertanejas para desacelerar e recarregar as energias.",
   },
   {
     title: "Na Estrada",
     image: estrada,
-    description: "A companhia perfeita para qualquer viagem.",
+    description: "Sua trilha sertaneja para acompanhar novos caminhos.",
   },
   {
     title: "Na Festa",
     image: festa,
-    description: "Energia e diversão com o melhor do country e sertanejo.",
+    description: "Energia e diversão com o sertanejo universitário que a galera canta junto.",
   },
 ];
 

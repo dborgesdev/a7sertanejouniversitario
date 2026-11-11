@@ -16,15 +16,16 @@ export function AboutSection() {
           transition={{ duration: 0.7 }}
         >
           <h2 className="font-display text-4xl font-black text-primary-foreground md:text-5xl tracking-tight leading-tight">
-            Sua Playlist <span className="text-gradient-red">Infinita</span>
+            Sua playlist sertaneja <span className="text-gradient-red">não tem fim</span>
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-primary-foreground/70">
-            A Texas Brasil FM nasceu da paixão pela autenticidade. Somos o ponto de encontro entre a
-            tradição do sertanejo e a modernidade do country, transmitindo alegria e qualidade
-            sonora 24 horas por dia.
+            A A7 Sertanejo Universitário FM é o lugar de quem vive a música sertaneja. Dos sucessos
+            que dominam as playlists às canções que fazem todo mundo cantar junto, nossa programação
+            leva o melhor do sertanejo universitário até você.
           </p>
           <p className="mt-4 text-base text-primary-foreground/50">
-            Cada nota carrega a alma do Brasil misturada com a energia do Texas.
+            Uma trilha sonora para acompanhar sua rotina, seus encontros, suas viagens e os momentos
+            que merecem uma boa música.
           </p>
           <a
             href="#player"
@@ -47,10 +48,10 @@ export function AboutSection() {
           <div className="overflow-hidden rounded-3xl shadow-2xl shadow-texas-dark/50">
             <img
               src={aboutImg}
-              alt="Locutor texano no estúdio da Texas Brasil FM"
+              alt="Microfone e mesa de áudio em um estúdio de rádio moderno"
               loading="lazy"
               width={1200}
-              height={1080}
+              height={900}
               className="h-full w-full object-cover"
             />
           </div>

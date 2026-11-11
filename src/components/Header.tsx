@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const menuItems = [
@@ -11,20 +11,9 @@ const menuItems = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   // Cores baseadas na identidade visual: Azul Marinho (#002366) e Vermelho (#E31837)
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 not-italic bg-white/80 backdrop-blur-md shadow-lg border-b border-white/20"
-      }`}
-    >
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 not-italic bg-white/80 backdrop-blur-md shadow-lg border-b border-white/20">
       <div className="mx-auto flex max-w-7xl items-center justify-center px-4 py-3 lg:px-8 relative">
         {/* Menu Esquerda */}
         <nav className="hidden gap-8 md:flex absolute left-8">
@@ -32,8 +21,7 @@ export function Header() {
             <a
               key={item.label}
               href={item.link}
-              className={`font-body text-xs font-bold uppercase tracking-[0.2em] transition-all duration-300 hover:text-[#E31837] text-[#002366]"
-              }`}
+              className="font-body text-xs font-bold uppercase tracking-[0.2em] transition-all duration-300 hover:text-[#E31837] text-[#002366]"
             >
               {item.label}
             </a>
@@ -44,7 +32,7 @@ export function Header() {
         <a href="#hero" className="flex items-center">
           <img
             src="/images/logo-texas-brasil.png"
-            alt="Texas Brasil FM"
+            alt="A7 Sertanejo Universitário FM"
             className="h-16 w-auto drop-shadow-md transition-transform duration-300 hover:scale-105"
           />
         </a>
@@ -55,8 +43,7 @@ export function Header() {
             <a
               key={item.label}
               href={item.link}
-              className={`font-body text-xs font-bold uppercase tracking-[0.2em] transition-all duration-300 hover:text-[#E31837] text-[#002366]"
-              }`}
+              className="font-body text-xs font-bold uppercase tracking-[0.2em] transition-all duration-300 hover:text-[#E31837] text-[#002366]"
             >
               {item.label}
             </a>
@@ -72,9 +59,10 @@ export function Header() {
         {/* Mobile Toggle */}
         <button
           onClick={() => setOpen(!open)}
-          className={`md:hidden absolute right-4 transition-colors "text-[#002366]"
-          }`}
-          aria-label="Menu"
+          className="md:hidden absolute right-4 transition-colors text-[#002366]"
+          aria-label={open ? "Fechar menu" : "Abrir menu"}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
         >
           {open ? <X size={28} /> : <Menu size={28} />}
         </button>
@@ -82,7 +70,10 @@ export function Header() {
 
       {/* Mobile Menu (Glass Effect) */}
       {open && (
-        <nav className="flex flex-col gap-6 bg-white/95 backdrop-blur-xl px-8 py-10 md:hidden border-b border-gray-200 animate-in fade-in slide-in-from-top-4">
+        <nav
+          id="mobile-menu"
+          className="flex flex-col gap-6 bg-white/95 backdrop-blur-xl px-8 py-10 md:hidden border-b border-gray-200 animate-in fade-in slide-in-from-top-4"
+        >
           {menuItems.map((item) => (
             <a
               key={item.label}

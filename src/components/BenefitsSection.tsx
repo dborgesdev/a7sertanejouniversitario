@@ -4,26 +4,26 @@ import { Radio, Headphones, Globe, Smartphone } from "lucide-react";
 const benefits = [
   {
     icon: Radio,
-    title: "100% Ao Vivo",
-    description: "Transmissão em tempo real, sem intervalos genéricos.",
+    title: "Sertanejo em Sintonia",
+    description: "Conecte-se à nossa transmissão e curta o som da galera.",
     color: "from-secondary/20 to-secondary/5",
   },
   {
     icon: Headphones,
-    title: "Áudio HD",
-    description: "Alta qualidade e fidelidade sonora para seus ouvidos.",
+    title: "Música para Cantar Junto",
+    description: "Melodias e histórias que acompanham os seus momentos.",
     color: "from-primary/20 to-primary/5",
   },
   {
     icon: Globe,
-    title: "Alcance Global",
-    description: "O som do interior do Brasil rompendo fronteiras.",
+    title: "Conexão pela Internet",
+    description: "Acesse a rádio pela internet onde houver conexão.",
     color: "from-secondary/20 to-secondary/5",
   },
   {
     icon: Smartphone,
     title: "Multiplataforma",
-    description: "Ouça no carro, no celular ou no seu computador.",
+    description: "Acesse pelo navegador ou conheça o aplicativo oficial.",
     color: "from-primary/20 to-primary/5",
   },
 ];
@@ -41,7 +41,8 @@ export function BenefitsSection() {
           className="text-center mb-14"
         >
           <h2 className="font-display text-3xl font-black text-foreground md:text-5xl tracking-tight">
-            Por Que Ouvir a <span className="text-gradient-red">Texas Brasil FM</span>?
+            Por Que Ouvir a <span className="text-gradient-red">A7 Sertanejo Universitário FM</span>
+            ?
           </h2>
         </motion.div>
 

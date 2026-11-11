@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useReducedMotion, motion } from "framer-motion";
 import hero01 from "@/assets/hero_01.webp";
 import hero02 from "@/assets/hero_02.webp";
 import hero03 from "@/assets/hero_03.webp";
@@ -8,17 +8,21 @@ import hero05 from "@/assets/hero_05.webp";
 import hero06 from "@/assets/hero_06.webp";
 
 const images = [hero01, hero02, hero03, hero04, hero05, hero06];
-const playerIframeUrl = "https://player.svrdedicado.org/player-topo-html5/7228/000000";
+const playerIframeUrl = "https://player.svrdedicado.org/player-topo-html5/7752/000000";
 
 export function StreamingPlayer() {
   const [current, setCurrent] = useState(0);
+  const [activated, setActivated] = useState(false);
+
+  const reducedMotion = useReducedMotion();
 
   useEffect(() => {
+    if (reducedMotion) return;
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length);
     }, 4000);
     return () => clearInterval(timer);
-  }, []);
+  }, [reducedMotion]);
 
   return (
     <section
@@ -40,10 +44,10 @@ export function StreamingPlayer() {
             Rádio ao vivo
           </span>
           <h2 className="font-display text-3xl font-black text-foreground md:text-5xl tracking-tight">
-            Rádio <span className="text-gradient-red">Texas Brasil FM</span>
+            Rádio <span className="text-gradient-red">A7 Sertanejo Universitário FM</span>
           </h2>
           <p className="mt-3 text-muted-foreground text-sm md:text-base">
-            Música sem interrupções. 24h de pura emoção.
+            O som da galera. Dê o play para ouvir ao vivo.
           </p>
         </motion.div>
 
@@ -78,10 +82,10 @@ export function StreamingPlayer() {
                   key={i}
                   className="w-1 rounded-full bg-secondary/80"
                   animate={{
-                    height: [8, Math.random() * 30 + 10, 8],
+                    height: reducedMotion ? 12 : [8, 10 + ((i * 7) % 30), 8],
                   }}
                   transition={{
-                    duration: 0.8 + Math.random() * 0.4,
+                    duration: 0.8 + (i % 4) * 0.1,
                     repeat: Infinity,
                     ease: "easeInOut",
                     delay: i * 0.05,
@@ -93,12 +97,23 @@ export function StreamingPlayer() {
 
           {/* Player oficial hospedado pelo provedor */}
           <div className="relative bg-texas-dark">
-            <iframe
-              src={playerIframeUrl}
-              title="Texas Brasil FM - Player ao vivo"
-              className="h-20 w-full border-0"
-              allow="autoplay"
-            />
+            {activated ? (
+              <iframe
+                src={playerIframeUrl}
+                title="A7 Sertanejo Universitário FM - Player ao vivo"
+                className="h-20 w-full border-0"
+                allow="autoplay"
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
+            ) : (
+              <button
+                type="button"
+                onClick={() => setActivated(true)}
+                className="min-h-20 w-full px-4 py-5 font-bold text-white hover:text-secondary focus-visible:outline-2 focus-visible:outline-secondary"
+              >
+                ▶ Carregar player ao vivo
+              </button>
+            )}
           </div>
         </motion.div>
       </div>

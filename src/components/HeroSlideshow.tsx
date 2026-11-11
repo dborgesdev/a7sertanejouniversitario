@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useReducedMotion, motion, AnimatePresence } from "framer-motion";
 import hero01 from "@/assets/hero_01.webp";
 import hero02 from "@/assets/hero_02.webp";
 import hero03 from "@/assets/hero_03.webp";
@@ -8,23 +8,26 @@ import hero05 from "@/assets/hero_05.webp";
 import hero06 from "@/assets/hero_06.webp";
 
 const slides = [
-  { image: hero01, alt: "Energia da música country no Texas" },
+  { image: hero01, alt: "Palco sertanejo com luzes vermelhas e douradas" },
   { image: hero02, alt: "Violão sertanejo e animação" },
   { image: hero03, alt: "Festa e alegria sertaneja" },
   { image: hero04, alt: "Show ao vivo com multidão" },
-  { image: hero05, alt: "Banda country no palco" },
-  { image: hero06, alt: "Festival country ao pôr do sol" },
+  { image: hero05, alt: "Dupla sertaneja com violões no palco" },
+  { image: hero06, alt: "Festival de música ao pôr do sol" },
 ];
 
 export function HeroSlideshow() {
   const [current, setCurrent] = useState(0);
 
+  const reducedMotion = useReducedMotion();
+
   useEffect(() => {
+    if (reducedMotion) return;
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [reducedMotion]);
 
   return (
     <section id="hero" className="relative min-h-screen flex flex-col overflow-hidden">
@@ -70,12 +73,12 @@ export function HeroSlideshow() {
           transition={{ delay: 0.5, duration: 1 }}
           className="font-display text-4xl font-black leading-[1.05] tracking-tight text-primary-foreground md:text-7xl lg:text-8xl"
         >
-          <span className="block">Aqui o modão</span>
+          <span className="block">Aqui o sertanejo</span>
           <span className="block mt-2">
             <span className="text-gradient-red">não para!</span>
           </span>
           <span className="block text-2xl sm:text-3xl md:text-4xl text-primary-foreground font-sans font-light tracking-normal mt-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-            On-line do Brasil para o Mundo
+            O som da galera
           </span>
         </motion.h1>
 
@@ -85,9 +88,8 @@ export function HeroSlideshow() {
           transition={{ delay: 0.7 }}
           className="mt-6 max-w-lg text-base text-primary-foreground/70 font-normal tracking-wide md:text-lg"
         >
-          A melhor rádio de música country e sertaneja do Brasil.
-          <br className="hidden sm:block" />
-          Ouça ao vivo 24h de qualquer lugar do mundo.
+          A7 Sertanejo Universitário FM. Os sucessos que embalam a galera, com muita música e
+          energia para acompanhar você em todos os momentos.
         </motion.p>
 
         <motion.a
