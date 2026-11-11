@@ -2,16 +2,12 @@ import { useState, useEffect } from "react";
 import { useReducedMotion, motion, AnimatePresence } from "framer-motion";
 import hero01 from "@/assets/hero_01.webp";
 import hero02 from "@/assets/hero_02.webp";
-import hero03 from "@/assets/hero_03.webp";
-import hero04 from "@/assets/hero_04.webp";
 import hero05 from "@/assets/hero_05.webp";
 import hero06 from "@/assets/hero_06.webp";
 
 const slides = [
   { image: hero01, alt: "Palco sertanejo com luzes vermelhas e douradas" },
   { image: hero02, alt: "Violão sertanejo e animação" },
-  { image: hero03, alt: "Festa e alegria sertaneja" },
-  { image: hero04, alt: "Show ao vivo com multidão" },
   { image: hero05, alt: "Dupla sertaneja com violões no palco" },
   { image: hero06, alt: "Festival de música ao pôr do sol" },
 ];
