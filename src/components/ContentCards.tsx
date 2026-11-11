@@ -63,7 +63,7 @@ export function ContentCards() {
           viewport={{ once: true }}
           className="text-center mb-14"
         >
-          <h2 className="font-display text-3xl font-black text-foreground md:text-5xl tracking-tight">
+          <h2 className="font-editorial text-3xl font-bold text-foreground md:text-5xl tracking-tight">
             Sertanejo Universitário <span className="text-gradient-red">do Seu Jeito</span>
           </h2>
           <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
@@ -93,7 +93,7 @@ export function ContentCards() {
               />
               <div className="absolute inset-0 bg-linear-to-t from-texas-dark via-texas-dark/10 to-transparent" />
               <div className="absolute bottom-0 p-6">
-                <h3 className="font-display text-xl font-bold text-primary-foreground">
+                <h3 className="font-editorial text-xl font-bold text-primary-foreground">
                   {card.title}
                 </h3>
                 <p className="mt-1 text-sm text-primary-foreground/70 line-clamp-2">
@@ -147,7 +147,7 @@ export function ContentCards() {
                         <X size={20} />
                       </button>
                       <div className="p-8 -mt-12 relative z-10">
-                        <Dialog.Title className="font-display text-2xl font-black text-foreground">
+                        <Dialog.Title className="font-editorial text-2xl font-bold text-foreground">
                           {cards[selected].title}
                         </Dialog.Title>
                         <Dialog.Description

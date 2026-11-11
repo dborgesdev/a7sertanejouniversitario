@@ -16,7 +16,7 @@ export function AppDownload() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-display text-4xl font-black text-secondary-foreground md:text-5xl tracking-tight leading-tight">
+            <h2 className="font-headline text-4xl font-bold text-secondary-foreground md:text-5xl tracking-tight leading-tight">
               A Rádio Que Pulsa
               <br />
               no Seu <span className="opacity-90">Bolso</span>

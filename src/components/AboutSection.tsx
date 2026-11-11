@@ -15,7 +15,7 @@ export function AboutSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="font-display text-4xl font-black text-primary-foreground md:text-5xl tracking-tight leading-tight">
+          <h2 className="font-headline text-4xl font-bold text-primary-foreground md:text-5xl tracking-tight leading-tight">
             Sua playlist sertaneja <span className="text-gradient-red">não tem fim</span>
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-primary-foreground/70">
