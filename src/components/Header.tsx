@@ -14,7 +14,7 @@ export function Header() {
   // Cores baseadas na identidade visual: Azul Marinho (#002366) e Vermelho (#E31837)
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 not-italic bg-white/80 backdrop-blur-md shadow-lg border-b border-white/20">
-      <div className="mx-auto flex max-w-7xl items-center justify-center px-4 py-3 lg:px-8 relative">
+      <div className="mx-auto flex max-w-7xl items-center justify-center px-4 py-2 lg:px-8 relative">
         {/* Menu Esquerda */}
         <nav className="hidden gap-8 md:flex absolute left-8">
           {menuItems.slice(0, 3).map((item) => (
@@ -31,14 +31,16 @@ export function Header() {
         {/* Logo Central */}
         <a href="#hero" className="flex items-center">
           <img
-            src="/images/logo-texas-brasil.png"
+            src="/images/logo-a7sertanejouniversitario.webp"
             alt="A7 Sertanejo Universitário FM"
-            className="h-16 w-auto drop-shadow-md transition-transform duration-300 hover:scale-105"
+            width={256}
+            height={256}
+            className="h-20 w-auto object-contain drop-shadow-md transition-transform duration-300 hover:scale-105 sm:h-24"
           />
         </a>
 
         {/* Menu Direita */}
-        <nav className="hidden gap-8 md:flex absolute right-8 items-center">
+        <nav className="hidden gap-6 lg:gap-8 md:flex absolute right-8 items-center">
           {menuItems.slice(3).map((item) => (
             <a
               key={item.label}

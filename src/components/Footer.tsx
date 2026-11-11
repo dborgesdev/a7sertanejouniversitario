@@ -9,13 +9,11 @@ export function Footer() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex flex-col items-center gap-8 text-center">
             <img
-              src="/images/logo-texas-brasil.png"
+              src="/images/logo-a7sertanejouniversitario.webp"
               alt="A7 Sertanejo Universitário FM"
-              style={{
-                filter:
-                  "drop-shadow(0 0 5px rgba(255, 255, 255, 1)) drop-shadow(0 0 30px rgba(255, 255, 255, 1))",
-              }}
-              className="h-16 w-auto"
+              width={256}
+              height={256}
+              className="h-36 w-36 object-contain sm:h-40 sm:w-40"
             />
             <p className="font-display text-lg font-bold text-primary-foreground/80 tracking-wide">
               O som da galera
